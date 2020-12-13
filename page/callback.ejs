@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../src/main.css">
+    <title>SeoaV1 OBT</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/howto">신청방법</a>
+      <a href="https://discord.gg/BHS5pw3">지원서버</a>
+    </div>
+    <div class="container">
+    <% if (exists) { %>
+      <h3>이런, 이미 등록한 서버가 있어요!</h3>
+      <p>한 계정당 하나의 서버만 등록할 수 있어요</p>
+      <a href="/step1">돌아가기</a>
+    <% } else { %>
+      <h1>서버 선택</h1>
+      <p>한 계정당 하나의 서버만 등록할 수 있어요</p>
+      <% for (const guild of guilds) { %>
+        <h4><a href="/step3?guild=<%= guild.id %>"><%= guild.name %></a></h4>
+        <hr />
+      <% } %>
+    <% } %>
+    </div>
+  </body>
+</html>
